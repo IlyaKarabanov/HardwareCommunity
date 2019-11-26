@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{parts/common :: head}">
+    <title>Spring Security Example </title>
+</head>
+<body>
+<div th:if="${auth}">
+    <a th:href="@{/users}">user list</a>
+</div>
+<div th:if="${auth}">
+    <a th:href="@{/product}">продукты</a>
+</div>
+<bootstrap  th:unsert="~{parts/common :: endOfBody}"/>
+</body>
+</html>

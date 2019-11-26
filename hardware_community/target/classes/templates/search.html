@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <bootstrap th:insert="~{parts/common :: head}" />
+    <title>Результаты поиска</title>
+</head>
+<body>
+<navigation th:insert="~{parts/common :: navigation}" />
+<tr th:each="cpu: ${cpuResult}">
+    <div class="card my-3" style="width: 24rem" >
+        <div class="m-2" >
+            <a th:href="@{'/product/' + ${cpu.getId()}}">
+                <td th:text="${cpu.getBrand()}" />
+                <td th:text="${cpu.getName()}" />
+                <td th:text="${cpu.getSocket()}"/>
+                <td th:text="${cpu.getCore()}" />
+                <th th:text="${cpu.getFrequency()}" />
+            </a>
+            <!-- <td><a th:href="@{'/product/' + ${product.getId()}}">edit</a></td> -->
+        </div>
+    </div>
+</tr>
+
+
+<bootstrap th:insert="~{parts/common :: endOfBody}" />
+</body>
+</html>

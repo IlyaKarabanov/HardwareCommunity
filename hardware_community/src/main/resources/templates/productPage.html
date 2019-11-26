@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{parts/common :: head}">
+    <title>Spring Security Example </title>
+</head>
+<body>
+<div>
+    <a href="/product/addPage">add new product</a>
+</div>
+<div>
+    <form th:action="@{/product/search}" method="post">
+        <input type="text" name="text" />
+        <button type="submit">Поиск</button>
+    </form>
+</div>
+<tr th:each="cpu: ${cpuList}">
+    <div>
+        <td th:text="${cpu.getId()}" />
+        <td th:text="${cpu.getBrand()}" />
+        <td th:text="${cpu.getName()}" />
+        <td th:text="${cpu.getDateOfAdding()}"/>
+        <!-- <td><a th:href="@{'/product/' + ${product.getId()}}">edit</a></td> -->
+    </div>
+</tr>
+<tr th:each="gpu: ${gpuList}">
+    <div>
+        <td th:text="${gpu.getId()}" />
+        <td th:text="${gpu.getBrand()}" />
+        <td th:text="${gpu.getName()}" />
+        <td th:text="${gpu.getDateOfAdding()}"/>
+    </div>
+</tr>
+<tr th:each="ram: ${ramList}">
+    <div>
+        <td th:text="${ram.getId()}" />
+        <td th:text="${ram.getBrand()}" />
+        <td th:text="${ram.getName()}" />
+        <td th:text="${ram.getDateOfAdding()}"/>
+    </div>
+</tr>
+<tr th:each="searchResilt: ${searchResults}">
+    <div>
+        <td th:text="${searchResilt.getId()}" />
+        <td th:text="${searchResilt.getBrand()}" />
+        <td th:text="${searchResilt.getName()}" />
+        <td th:text="${searchResilt.getDateOfAdding()}"/>
+    </div>
+</tr>
+<form th:action="@{/product/deleteAll}" method="post">
+    <button type="submit">Добавить</button>
+</form>
+<bootstrap th:unsert="~{parts/common :: endOfBody}"/>
+</body>
+</html>
